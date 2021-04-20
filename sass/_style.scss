@@ -1,0 +1,451 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap');
+
+body, select, option, button, textarea {
+  color: $colorBlack;
+  font: 300 18px 'Jost', sans-serif;
+  line-height: 30px;
+}
+
+body {
+  background-color: $bodyBack;
+}
+
+.page-container {
+  margin: 0 auto;
+  max-width: 1236px;
+  padding: 0 32px;
+}
+.page-title {
+  color: $colorBlack;
+  font: 400 48px/82px 'Jost', sans-serif;
+  margin-bottom: 16px;
+}
+
+//burger-menu
+.burger {
+  height: 40px;
+  position: relative;
+  width: 50px;
+
+  .burger-line {
+    background-color: $colorBlack;
+    height: 2px;
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    transition: all .5s ease;
+    width: 35px;
+  }
+  .burger-line-second,
+  .burger-line-third {
+    top: 18px;
+  }
+  .burger-line-fourth {
+    top: 28px;
+  }
+  &:hover {
+    .burger-line-first,
+    .burger-line-fourth {
+      display: none;
+    }
+    .burger-line-second {
+      transform: rotate(45deg);
+    }
+    .burger-line-third {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+//header
+.header {
+  background-color: $colorWhite;
+  &__container {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    height: 250px;
+    margin: 0 auto;
+    max-width: 1436px;
+    padding: 0 32px;
+    @media only screen and (max-width: 768px) {
+      height: 160px;
+    }
+  }
+  a {
+    color: $colorBlack;
+    font-size: 24px;
+    line-height: 30px;
+  }
+  &__logo-link {
+    display: inline-block;
+    & > img {
+      height: 76px;
+      object-fit: contain;
+      width: 76px;
+    }
+  }
+  &__item {
+    align-items: center;
+    display: flex;
+    flex: 0 0 200px;
+    @media only screen and (max-width: 768px) {
+      flex: 0 0 80px;
+    }
+    &.return {
+      img {
+        margin-right: 28px;
+      }
+      @media only screen and (max-width: 768px) {
+        a {
+          display: none;
+        }
+      }
+    }
+    &.menu {
+      justify-content: flex-end;
+    }
+    @media only screen and (min-width: 768px) {
+      &.return:hover img {
+        @include animation(shake-left, .8s, ease-in-out);
+      }
+    }
+  }
+  &__menu {
+    font-size: 24px;
+    line-height: 30px;
+    margin-right: 28px;
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+}
+
+//banner section
+.banner {
+  background-color: $colorWhite;
+  margin-bottom: 130px;
+  padding: 0 32px;
+  text-align: center;
+  &__button {
+    border: 1px solid $colorBlack;
+    font: 36px/60px 'Jost', sans-serif;
+    margin-bottom: 70px;
+    padding: 0 60px;
+    @include transition-mixin('');
+    @media only screen and (min-width: 768px) {
+      &:hover {
+        color: $colorWhite;
+        background-color: $colorBlack;;
+      }
+    }
+  }
+  &__title {
+    font: 600 96px/110px 'Jost', sans-serif;
+    margin: 0 auto 35px;
+    max-width: 1310px;
+    @media only screen and (max-width: 1200px) {
+      font: 600 48px/60px 'Jost', sans-serif;
+    }
+    @media only screen and (max-width: 768px) {
+      font: 600 36px/42px 'Jost', sans-serif;
+    }
+  }
+  &__text {
+    font: 24px/40px 'Jost', sans-serif;
+    margin: 0 auto 110px;
+    max-width: 1100px;
+  }
+  &__link {
+    color: $colorBlue;
+    display: block;
+    font: 36px/60px 'Jost', sans-serif;
+    margin-bottom: 25px;
+    & + img {
+      @include animation(fade-in-down, 2s, ease-out, 0s, infinite);
+    }
+  }
+}
+
+//complexity section
+.complexity {
+  h3 + p {
+    font-style: italic;
+    font-weight: 400;
+  }
+  &__content {
+    align-items: flex-end;
+    display: flex;
+    margin-bottom: 148px;
+    @media only screen and (max-width: 1200px) {
+      flex-direction: column;
+    }
+  }
+  &__desc {
+    margin-left: 80px;
+    @media only screen and (max-width: 1200px) {
+      margin-left: 0;
+    }
+    p {
+      margin-bottom: 35px;
+    }
+  }
+
+  &__figure {
+    background-color: $figureBack;
+    height: 725px;
+    margin-left: -100px;
+    flex: 0 0 56%;
+    @media only screen and (max-width: 1600px) {
+      margin-left: 0;
+    }
+    @media only screen and (max-width: 1200px) {
+      flex: unset;
+      height: 350px;
+      width: 100%;
+    }
+    & > img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+//complex section
+.complex {
+  h3 + p {
+    margin-bottom: 40px;
+  }
+  &__content {
+    display: flex;
+    margin-bottom: 148px;
+    @media only screen and (max-width: 1200px) {
+      flex-direction: column;
+    }
+  }
+  &__desc {
+    margin-right: 80px;
+    @media only screen and (max-width: 1200px) {
+      margin-right: 0;
+    }
+    p, ul {
+      margin-bottom: 35px;
+    }
+    ol {
+      margin-bottom: 32px;
+    }
+    em {
+      font-style: italic;
+    }
+    strong {
+      font-weight: 500;
+    }
+    ul li {
+      &:before {
+        content: '';
+        margin: 0 12px 7px 6px;
+        display: inline-block;
+        width: 1px;
+        height: 1px;
+        background-color: $colorBlack;
+      }
+    }
+    li {
+      display: list-item;
+      list-style-position: inside;
+    }
+    a {
+      color: $colorBlue;
+      opacity: 1;
+      @include transition-mixin('opacity');
+      @media only screen and (min-width: 768px) {
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+
+  &__figure {
+    background-color: $figureBack;
+    height: 725px;
+    margin-right: -100px;
+    flex: 0 0 56%;
+    @media only screen and (max-width: 1600px) {
+      margin-right: 0;
+    }
+    @media only screen and (max-width: 1200px) {
+      flex: unset;
+      height: 350px;
+      width: 100%;
+    }
+    & > img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+//quote section
+.quote {
+  margin-bottom: 88px;
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    border: 1px solid $colorBlue;
+    height: 15px;
+  }
+  &__block {
+    display: flex;
+    padding: 92px 20px;
+    @media only screen and (max-width: 1200px) {
+      flex-direction: column;
+      & > img {
+        margin: 0 auto 35px;
+        width: 108px;
+      }
+    }
+    & > img {
+      height: auto;
+      margin-right: 80px;
+      width: 160px;
+    }
+  }
+  &__content {
+    p {
+      font-style: italic;
+      &:first-child {
+        margin-bottom: 35px;
+      }
+    }
+  }
+  &__author {
+    font-weight: 600;
+  }
+}
+
+//solving section
+.solving {
+  margin-bottom: 88px;
+  &__figure {
+    background-color: $figureBack;
+    height: 725px;
+    margin: 88px -100px 0;
+    @media only screen and (max-width: 1600px) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    @media only screen and (max-width: 1200px) {
+      height: 350px;
+      width: 100%;
+    }
+    & > img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+//about section
+.about {
+  margin-bottom: 204px;
+}
+
+//help section
+.help {
+  margin-bottom: 172px;
+  max-width: 866px;
+  text-align: center;
+  &__title {
+    color: $colorBlack;
+    font: 600 60px/84px 'Jost', sans-serif;
+    margin-bottom: 26px;
+    @media only screen and (max-width: 1200px) {
+      font: 600 36px/54px 'Jost', sans-serif;
+    }
+  }
+  &__info {
+    color: $colorBlue;
+    font: 32px/54px 'Jost', sans-serif;
+    margin-bottom: 42px;
+  }
+  &__link {
+    background-color: $colorBlue;
+    border-radius: 25px;
+    color: $colorWhite;
+    display: inline-block;
+    font: 500 20px/50px 'Jost', sans-serif;
+    height: 50px;
+    opacity: 1;
+    padding: 0 38px;
+    @include transition-mixin('opacity');
+    @media only screen and (min-width: 768px) {
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+//footer
+.footer {
+  align-items: center;
+  background-color: $footerBack;
+  padding: 104px 32px 180px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  @media only screen and (max-width: 768px) {
+    padding: 58px 32px 100px;
+  }
+  &__logo-link {
+    display: inline-block;
+    margin-bottom: 24px;
+    & > img {
+      height: 76px;
+      object-fit: contain;
+      width: 76px;
+    }
+  }
+  &__copy {
+    color: $colorWhite;
+  }
+  &__link {
+    color: $colorWhite;
+    font-weight: 600;
+    border-bottom: 2px solid $colorWhite;
+  }
+}
+
+
+/*keyframes*/
+@include keyframes(fade-in-down) {
+  from {
+    opacity: 0;
+    @include transform-3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    @include transform-3d(0, 0, 0);
+  }
+}
+
+// shake-up
+@include keyframes(shake-left) {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  33% {
+    transform: translate(-10px, 0);
+  }
+
+  66% {
+    transform: translate(0, 0);
+  }
+}
